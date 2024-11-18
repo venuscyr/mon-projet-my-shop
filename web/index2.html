@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login et Register</title>
+    <style>
+        
+        template {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        
+        .container {
+            background-color: #fff;
+            width: 350px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+        
+        #loginForm {
+            display: block;
+        }
+
+        
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .input-field:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        
+        .button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        
+        .toggle-link {
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="loginForm">
+    <h2>Login</h2>
+    <input type="email" class="input-field" placeholder="Email" required>
+    <input type="password" class="input-field" placeholder="Password" required>
+    <button class="button">Login</button>
+    <p class="toggle-link" onclick="showRegister()">Don't have an account? Register</p>
+</div>
+
+<div class="container" id="registerForm">
+    <h2>Register</h2>
+    <input type="text" class="input-field" placeholder="Username" required>
+    <input type="email" class="input-field" placeholder="Email" required>
+    <input type="password" class="input-field" placeholder="Password" required>
+    <input type="password" class="input-field" placeholder="Confirm Password" required>
+    <button class="button">Register</button>
+    <p class="toggle-link" onclick="showLogin()">Already have an account? Login</p>
+</div>
+
+<script>
+    function showRegister() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+    }
+
+    function showLogin() {
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

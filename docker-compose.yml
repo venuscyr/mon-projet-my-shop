@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build:
+      context: ./frontend/vue-project  # Référence le bon dossier du frontend
+    ports:
+      - "5173:5173"  
+    volumes:
+      - ./frontend/vue-project:/app   
+    command: npm run dev 
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000" 
+    volumes:
+      - ./backend:/app
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=myshop
+      - DB_USER=root
+      - DB_PASSWORD=example
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: myshop_mysql
+    ports:
+      - "3306:3306"  
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: myshop
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
